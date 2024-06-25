@@ -1,15 +1,9 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-
 // admin SDK
+const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     storageBucket: 'gs://colectieparfumuribd.appspot.com'
-});
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    next();
 });
 const db = admin.firestore();
 const multer = require('multer');
@@ -21,4 +15,4 @@ const uploadMiddleware = multer({
     },
 });
 
-export default db;
+module.exports = db;
