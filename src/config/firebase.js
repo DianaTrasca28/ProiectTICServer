@@ -15,4 +15,4 @@ const uploadMiddleware = multer({
     },
 });
 
-module.exports = {db};
+module.exports = {db, bucket};

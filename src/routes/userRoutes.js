@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const { generateAccessToken } = require('../utils/token');
-const { db } = require('../config/firebase');
+const generateAccessToken = require('../utils/token');
+
 router.post('/signup', async (req, res) => {
     try {
         const userData = req.body;
