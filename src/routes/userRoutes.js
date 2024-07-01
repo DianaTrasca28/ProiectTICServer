@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const generateAccessToken = require('../utils/token');
+const token = require('../utils/token');
 
 router.post('/signup', async (req, res) => {
     try {
@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
         const result = await userController.getUserByUsername(username,password);
         return res.status(200).json({
             message: 'Log in successfully!',
-            validAuthorization: generateAccessToken(username),
+            validAuthorization: token.generateAccessToken(username),
             wishList: result.wishList,
             firstName: result.firstName,
             lastName: result.lastName,
